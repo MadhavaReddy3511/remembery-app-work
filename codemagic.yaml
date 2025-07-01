@@ -4,10 +4,11 @@ workflows:
     max_build_duration: 60
     environment:
       node: 18.17.0   
-      vars:
-        EXPO_TOKEN: $EXPO_TOKEN
+      groups:
+        - expo_credentials
     scripts:
       - npm install
-      - npx expo build:android --non-interactive
+      - npx eas build --platform android --non-interactive
     artifacts:
-      - dist/**/*.apk
+      - ./dist/**/*.apk
+      - ./build/**/*.apk
