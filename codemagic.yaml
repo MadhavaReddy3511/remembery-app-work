@@ -8,7 +8,6 @@ workflows:
         EXPO_TOKEN: $EXPO_TOKEN
     scripts:
       - npm install
-      - npx expo install
       - npx expo build:android --non-interactive
     artifacts:
       - dist/**/*.apk
