@@ -4,11 +4,15 @@ workflows:
     max_build_duration: 60
     environment:
       node: 18.17.0   
+      npm: 9.6.7       # Optional, but good to fix npm version if needed
       groups:
-        - expo_credentials
+        - expo_credentials  # Make sure this group is defined in Codemagic
+      vars:
+        EAS_BUILD_PROFILE: production  # Optional, depends on your eas.json profiles
     scripts:
-      - npm install
-      - npx eas build --platform android --non-interactive
+      - npm ci           # Faster and safer than `npm install` for CI
+      - npx eas build --platform android --non-interactive --profile $EAS_BUILD_PROFILE
     artifacts:
       - ./dist/**/*.apk
       - ./build/**/*.apk
+      - ./*.apk  # In case your build drops APKs at root
