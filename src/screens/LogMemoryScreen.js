@@ -97,5 +97,5 @@ const styles = StyleSheet.create({
   preview: { width: 120, height: 120, marginBottom: 15, borderRadius: 10, borderWidth: 1, borderColor: colors.accentBeige },
   saveButton: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.accentGreen, paddingVertical: 15, paddingHorizontal: 35, borderRadius: 30, marginBottom: 25, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3, shadowRadius: 5 },
   saveText: { color: colors.text, fontWeight: 'bold', marginLeft: 8 },
-  link: { color: colors.accentGreen, textDecorationLine: 'underline', marginTop: 15 },
+  link: { color: colors.accentGreen, textDecorationLine: 'underline', marginTop: 15 }, 
 });
