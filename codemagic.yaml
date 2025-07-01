@@ -3,16 +3,14 @@ workflows:
     name: Remembery Expo Build
     max_build_duration: 60
     environment:
-      node: 18.17.0   
-      npm: 9.6.7       # Optional, but good to fix npm version if needed
+      node: 18.17.0
       groups:
-        - expo_credentials  # Make sure this group is defined in Codemagic
-      vars:
-        EAS_BUILD_PROFILE: production  # Optional, depends on your eas.json profiles
+        - expo_credentials
     scripts:
-      - npm ci           # Faster and safer than `npm install` for CI
-      - npx eas build --platform android --non-interactive --profile production
+      - npm ci
+      - npm install -g eas-cli@latest
+      - eas build --platform android --non-interactive --profile production
     artifacts:
       - ./dist/**/*.apk
       - ./build/**/*.apk
-      - ./*.apk  # In case your build drops APKs at root
+      - ./*.apk
