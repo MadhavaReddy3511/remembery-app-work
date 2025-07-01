@@ -11,7 +11,7 @@ workflows:
         EAS_BUILD_PROFILE: production  # Optional, depends on your eas.json profiles
     scripts:
       - npm ci           # Faster and safer than `npm install` for CI
-      - npx eas build --platform android --non-interactive --profile $EAS_BUILD_PROFILE
+      - npx eas build --platform android --non-interactive --profile production
     artifacts:
       - ./dist/**/*.apk
       - ./build/**/*.apk
